@@ -16,19 +16,46 @@ public class Main {
             menuInput = keyboard.nextInt();
             switch (menuInput) {
                 case 1:
-                    Superheroliste database = new Superheroliste();
 
-                    System.out.println("indtast kaldenavn, rigtige navn, superkræft, årstal, om det er et menneske og styrketal");
+                    Database database = new Database();
+                    
+                    System.out.println("Indtast kaldenavn");
+                    String kaldenavn = keyboard.next();
+                    
+                    System.out.println("Indtast rigtige navn");
+                    String rigtigNavn = keyboard.next();
+                    
+                    System.out.println("Indtast superkræft");
+                    String superkræft = keyboard.next();
+                    
+                    System.out.println("Indtast fødselsår");
+                    int fødselsår = keyboard.nextInt();
+                    
+                    System.out.println("Er din superhelt et menneske? [ja/nej]");
+                    String erMenneskeInput = keyboard.next();
 
-                    database.tilføjSuperhero(keyboard.next(), keyboard.next(), keyboard.next(), keyboard.nextInt(), keyboard.nextBoolean(), keyboard.nextDouble());
+                    boolean erMenneske = false;
+                    if (erMenneskeInput.equals("ja")){
+                        erMenneske = true;
+                }else if (erMenneskeInput.equals("nej")){
+                        erMenneske = false;
+                    }
+                    
+                    System.out.println("Indtast styrketal");
+                    double styrketal = keyboard.nextDouble();
+                    
+                    //System.out.println("indtast kaldenavn, rigtige navn, superkræft, årstal, om det er et menneske og styrketal");
+
+                    
+                    database.tilføjSuperhero(kaldenavn, rigtigNavn,superkræft,fødselsår, erMenneske, styrketal);
                     System.out.println(database.toString());
                     break;
 
-                case 2:
-                    System.exit(0);
+                case 9:
+                    System.exit(123);
             }
 
-        } while (menuInput != 9);
+        } while (true);
 
 
     }
