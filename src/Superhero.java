@@ -1,10 +1,10 @@
 public class Superhero {
-    String name;
-    String realName;
-    String superPower;
-    int yearCreated;
-    String isHuman;
-    double strength;
+    private String name;
+    private String realName;
+    private String superPower;
+    private int yearCreated;
+    private String isHuman;
+    private double strength;
 
     public Superhero(String name, String realName, String superPower, int yearCreated, String isHuman, double strength) {
         this.name = name;
@@ -47,6 +47,6 @@ public class Superhero {
                 ", yearCreated=" + yearCreated +
                 ", isHuman=" + isHuman +
                 ", strength=" + strength +
-                '}';
+                '}' + "\n";
     }
 }
