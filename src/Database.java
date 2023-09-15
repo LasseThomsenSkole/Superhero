@@ -7,8 +7,8 @@ public class Database {
 
     public Database() {
         superheroList = new ArrayList<>();
-        Superhero superherotest = new Superhero("abe","kat","kaste bananer", 2003,"nej",12.1);
-        superheroList.add(superherotest);
+        Superhero superheroTest = new Superhero("abe","kat","kaste bananer", 2003,"nej",12.1);
+        superheroList.add(superheroTest);
 
 
     }
@@ -48,28 +48,26 @@ public class Database {
 
 
     }
-    public ArrayList<String> searchSuperhero(){
+    public Superhero searchSuperhero(){
+
         System.out.println("Søgning: ");
         Scanner keyboard = new Scanner(System.in);
 
         String searchInput = keyboard.next();
         ArrayList<String> heroes = new ArrayList<>();
-        boolean found = false;
 
-
+        //foreach loop som sammenligner søgning med superheroes på superheroList
         for (Superhero superhero:superheroList) {
             if(superhero.getName().toLowerCase().contains(searchInput.toLowerCase())){
                 if(!heroes.contains(superhero.getName())){
                     heroes.add(superhero.getName());
                     superheroInfo(superhero);
-                    found = true;
-                }else if (!found){
-                    System.out.println("Superhelt ikke fundet");
+                    return superhero;
 
                 }
             }
         }
-        return heroes;
+        return null;
     }
 
     public void superheroInfo(Superhero superhero){

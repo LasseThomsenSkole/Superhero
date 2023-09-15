@@ -1,10 +1,10 @@
 public class Superhero {
-    private String name;
-    private String realName;
-    private String superPower;
-    private int yearCreated;
-    private String isHuman;
-    private double strength;
+    private final String name;
+    private final String realName;
+    private final String superPower;
+    private final int yearCreated;
+    private final String isHuman;
+    private final double strength;
 
     public Superhero(String name, String realName, String superPower, int yearCreated, String isHuman, double strength) {
         this.name = name;
