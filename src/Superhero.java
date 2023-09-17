@@ -1,10 +1,11 @@
 public class Superhero {
-    private final String name;
-    private final String realName;
-    private final String superPower;
-    private final int yearCreated;
-    private final String isHuman;
-    private final double strength;
+    private String name;
+    private String superPower;
+    private int yearCreated;
+    private String isHuman;
+    private double strength;
+    private String realName;
+
 
     public Superhero(String name, String realName, String superPower, int yearCreated, String isHuman, double strength) {
         this.name = name;
@@ -13,6 +14,38 @@ public class Superhero {
         this.yearCreated = yearCreated;
         this.isHuman = isHuman;
         this.strength = strength;
+    }
+
+    public Superhero(String name, String superPower, int yearCreated, String isHuman, double strength) {
+        this.name = name;
+        this.superPower = superPower;
+        this.yearCreated = yearCreated;
+        this.isHuman = isHuman;
+        this.strength = strength;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSuperPower(String superPower) {
+        this.superPower = superPower;
+    }
+
+    public void setYearCreated(int yearCreated) {
+        this.yearCreated = yearCreated;
+    }
+
+    public void setIsHuman(String isHuman) {
+        this.isHuman = isHuman;
+    }
+
+    public void setStrength(double strength) {
+        this.strength = strength;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
     }
 
     public String getName() {

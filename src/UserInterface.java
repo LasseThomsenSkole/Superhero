@@ -14,7 +14,7 @@ public class UserInterface {
         //programloop
 
         do {
-            System.out.println("1. opret 2. søg 9. afslut");
+            System.out.println("1. opret 2. find en helt 3. find flere helte 9. afslut");
             menuInput = keyboard.nextInt();
             switch (menuInput) {
                 case 1:
@@ -24,10 +24,16 @@ public class UserInterface {
                 case 2:
                     database.searchSuperhero();
 
-
                     break;
-                case 9:
-                    System.exit(123);
+                case 3:
+                    System.out.println("søg: ");
+                    String searchInput = keyboard.next();
+                    database.searchSuperheroMore(searchInput);
+                case 4:
+                    System.out.println("Hvem vil du redigere? ");
+                    database.edit();
+
+
             }
 
         } while (!(menuInput ==9));}
