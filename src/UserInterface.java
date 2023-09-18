@@ -27,17 +27,18 @@ public class UserInterface {
                     if (result != null) {
                         System.out.println(result);
                     }
-
+                    break;
                 case 3:
                     System.out.println("søg: ");
                     String searchInput = keyboard.next();
                     database.searchSuperheroMultiple(searchInput);
+                    break;
                 case 4:
 
                     System.out.println("Hvem vil du redigere? ");
                     database.edit();
 
-
+                    break;
             }
 
         } while (!(menuInput ==9));}

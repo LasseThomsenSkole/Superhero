@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Database {
@@ -129,7 +130,6 @@ public class Database {
 
         ArrayList<Superhero> editSearchResult = searchSuperheroMultiple(editInput);
         Superhero superheroToBeEdited = null;
-        int choiceInput;
 
         if (editSearchResult.size() == 0) {
             System.out.println("Superhelt blev ik fundet");
@@ -147,10 +147,24 @@ public class Database {
                         superhero.getStrength()
                 );
             }
+            int choice;
 
-            choiceInput = keyboard.nextInt();   //fix
-            keyboard.nextLine(); //bug
-            superheroToBeEdited = editSearchResult.get(choiceInput - 1);
+            while (true) {
+                String choiceInput = keyboard.nextLine();
+
+                try {
+                    choice = Integer.parseInt(choiceInput);
+                    if (choice >=1 && choice <= superheroList.size()) {
+                        break;
+                    } else{
+                        System.out.println("Ugyldig valg");
+                    }
+                } catch (NumberFormatException numberFormatException ) {
+                    System.out.println("Ugyldigt valg");
+                }
+                //keyboard.nextLine(); //bug
+            }
+            superheroToBeEdited = editSearchResult.get(choice - 1);
         } else {
             superheroToBeEdited = editSearchResult.get(0);
         }
@@ -180,24 +194,58 @@ public class Database {
             }
 
             System.out.println("Fødselsår: " + superheroToBeEdited.getYearCreated());
-
-            newValue = keyboard.nextLine();
-
-            if (!newValue.isEmpty()) {
-                superheroToBeEdited.setYearCreated(Integer.parseInt(newValue));
+            while (true) {
+                newValue = keyboard.nextLine();
+                try {
+                    if (!newValue.isEmpty()) {
+                        int year = Integer.parseInt(newValue);
+                        superheroToBeEdited.setYearCreated(year);
+                    }
+                    break;
+                }catch (NumberFormatException n) {
+                    System.out.println("du skal skrive et heltal");
+                }
             }
+
+           /* if (!newValue.isEmpty()) {
+                superheroToBeEdited.setYearCreated(Integer.parseInt(newValue));
+            }*/
 
 
             System.out.println("Er superhelten menneske? " + superheroToBeEdited.getIsHuman());
-            newValue = keyboard.nextLine();
-            if (!newValue.isEmpty()) {
-                superheroToBeEdited.setIsHuman(newValue);
+
+
+            while (true) {
+                newValue = keyboard.nextLine();
+                if (!newValue.isEmpty()){
+                    if (newValue.contains("ja")) {
+                        superheroToBeEdited.setIsHuman(newValue);
+                        break;
+                    } else if (newValue.contains("nej")) {
+                        superheroToBeEdited.setIsHuman(newValue);
+                        break;
+
+                    } else {
+                        System.out.println("Du kan kun skrive ja eller nej");
+                    }
+                }else{
+                    break;
+                }
             }
 
+
             System.out.println("Superheltens styrketal: " + superheroToBeEdited.getStrength());
-            newValue = keyboard.nextLine();
-            if (!newValue.isEmpty()) {
-                superheroToBeEdited.setStrength(Double.parseDouble(newValue));
+            while (true){
+                newValue = keyboard.nextLine();
+                try {
+                    if (!newValue.isEmpty()) {
+                        double styrke = Double.parseDouble(newValue);
+                        superheroToBeEdited.setStrength(styrke);
+                    }
+                    break;
+                }catch (NumberFormatException n){
+                    System.out.println("Du skal skrive et tal med punktum");
+                }
             }
 
             System.out.println(superheroToBeEdited + "er redigeret");
