@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class UserInterface {
     public UserInterface(){
-
         }
 
     public void startprogram(){
@@ -14,7 +13,7 @@ public class UserInterface {
         //programloop
 
         do {
-            System.out.println("1. opret 2. find en helt 3. find flere helte 9. afslut");
+            System.out.println("1. opret 2. find en helt 3. find flere helte 4. Rediger en superhelt 9. afslut");
             menuInput = keyboard.nextInt();
             switch (menuInput) {
                 case 1:
@@ -22,14 +21,19 @@ public class UserInterface {
 
                     break;
                 case 2:
-                    database.searchSuperhero();
+                    System.out.println("søg efter en superhelt: ");
+                    String singleSearchInput = keyboard.next();
+                    Superhero result = database.searchSuperhero(singleSearchInput);
+                    if (result != null) {
+                        System.out.println(result);
+                    }
 
-                    break;
                 case 3:
                     System.out.println("søg: ");
                     String searchInput = keyboard.next();
-                    database.searchSuperheroMore(searchInput);
+                    database.searchSuperheroMultiple(searchInput);
                 case 4:
+
                     System.out.println("Hvem vil du redigere? ");
                     database.edit();
 
