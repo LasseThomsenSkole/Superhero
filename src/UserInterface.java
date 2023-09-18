@@ -25,7 +25,7 @@ public class UserInterface {
                     String singleSearchInput = keyboard.next();
                     Superhero result = database.searchSuperhero(singleSearchInput);
                     if (result != null) {
-                        System.out.println(result);
+                       database.superheroInfo(result);
                     }
                     break;
                 case 3:
@@ -42,5 +42,7 @@ public class UserInterface {
             }
 
         } while (!(menuInput ==9));}
+
+
 }
 

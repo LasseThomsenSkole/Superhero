@@ -113,14 +113,7 @@ public class Database {
 
 
 
-    public void superheroInfo(Superhero superhero) {
-        System.out.println("Superheltens navn: " + superhero.getName());
-        System.out.println("Superheltens rigtige navn: " + superhero.getRealName());
-        System.out.println("Superheltens superkræft: " + superhero.getSuperPower());
-        System.out.println("Superheltens fødselsår: " + superhero.getYearCreated());
-        System.out.println("Er superhelten menneske?  " + superhero.getIsHuman());
-        System.out.println("Superheltens styrke:  " + superhero.getStrength());
-    }
+
 
 
 
@@ -207,10 +200,6 @@ public class Database {
                 }
             }
 
-           /* if (!newValue.isEmpty()) {
-                superheroToBeEdited.setYearCreated(Integer.parseInt(newValue));
-            }*/
-
 
             System.out.println("Er superhelten menneske? " + superheroToBeEdited.getIsHuman());
 
@@ -248,8 +237,19 @@ public class Database {
                 }
             }
 
-            System.out.println(superheroToBeEdited + "er redigeret");
+            superheroInfo(superheroToBeEdited);
+            System.out.println("Superhelten er redigeret");
         }
+    }
+    public void superheroInfo(Superhero superhero) {
+        System.out.println("Superheltens navn: " + superhero.getName());
+        if (superhero.getRealName() != null) {
+            System.out.println("Superheltens rigtige navn: " + superhero.getRealName());
+        }
+        System.out.println("Superheltens superkræft: " + superhero.getSuperPower());
+        System.out.println("Superheltens fødselsår: " + superhero.getYearCreated());
+        System.out.println("Er superhelten menneske?  " + superhero.getIsHuman());
+        System.out.println("Superheltens styrke:  " + superhero.getStrength());
     }
 }
 
