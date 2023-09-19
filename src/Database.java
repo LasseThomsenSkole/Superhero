@@ -83,8 +83,6 @@ public class Database {
                 if (!heroes.contains(superhero.getName())) {
                     heroes.add(superhero.getName());
 
-                    //superheroInfo(superhero);
-
                     return superhero;
 
                 }
@@ -97,7 +95,7 @@ public class Database {
     }
 
 
-
+    //søgning hvor flere resultater kommer tilbage
     public ArrayList<Superhero> searchSuperheroMultiple(String search) {
         ArrayList<Superhero> searchResult = new ArrayList<>();
 
@@ -155,7 +153,7 @@ public class Database {
                 } catch (NumberFormatException numberFormatException ) {
                     System.out.println("Ugyldigt valg");
                 }
-                //keyboard.nextLine(); //bug
+
             }
             superheroToBeEdited = editSearchResult.get(choice - 1);
         } else {

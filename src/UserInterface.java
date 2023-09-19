@@ -29,7 +29,7 @@ public class UserInterface {
                     }
                     break;
                 case 3:
-                    System.out.println("søg: ");
+                    System.out.println("søg efter flere superhelte: ");
                     String searchInput = keyboard.next();
                     database.searchSuperheroMultiple(searchInput);
                     break;
